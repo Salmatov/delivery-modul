@@ -24,7 +24,8 @@ try {
     $deliveryDTO->load($request);
     $deliveryDTO->validate();
 } catch (Exception $e) {
-    echo $e->getMessage();
+    header('Content-Type: application/json', true, 400);
+    echo json_encode(['error' => $e->getMessage()]);
     exit();
 }
 
@@ -39,4 +40,5 @@ try {
 
 $fastDeliveryResult = $deliveryService->fastDelivery($deliveryDTO->from, $deliveryDTO->to, $deliveryDTO->weight);
 $result = json_encode($fastDeliveryResult, true);
+header('Content-Type: application/json');
 echo $result;

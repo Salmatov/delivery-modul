@@ -27,7 +27,6 @@ class DeliveryCompany
 
     public function getDeliveryCompanyActive(): array
     {
-        $deliveryCompanyActive = [];
         foreach ($this->deliveryCompanyDB as $deliveryCompany){
             if ($deliveryCompany['status'] == self::STATUS_ACTIVE ){
                 $this->deliveryCompany[] = ['id'=>$deliveryCompany['id'],'name'=>$deliveryCompany['name']];
