@@ -47,7 +47,7 @@ class DeliveryService
 
             $result[] = [
                 'price'=>$data['price'],
-                'date'=>$data['period'],
+                'date'=>$date->format('Y-m-d'),
                 'error'=>$data['error']
             ];
         }
